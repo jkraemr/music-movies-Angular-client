@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
+// import { catchError } from 'rxjs/internal/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, catchError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
@@ -107,31 +107,31 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  // Add movie to favourite movies endpoint API call
-  addFavoriteMovie(movieId: any): Observable<any> {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
-    return this.http
-      .post(apiUrl + `users/${username}/movies/${id}`, null, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
+  // // Add movie to favourite movies endpoint API call
+  // addFavoriteMovie(movieId: any): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const username = localStorage.getItem('username');
+  //   return this.http
+  //     .post(apiUrl + `users/${username}/movies/${id}`, null, {
+  //       headers: new HttpHeaders({
+  //         Authorization: 'Bearer ' + token,
+  //       }),
+  //     })
+  //     .pipe(map(this.extractResponseData), catchError(this.handleError));
+  // }
 
-  // Edit user endpoint API call
-  editUser(userDetails: any): Observable<any> {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
-    return this.http
-      .patch(apiUrl + `users/${username}`, userData, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
+  // // Edit user endpoint API call
+  // editUser(userDetails: any): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const username = localStorage.getItem('username');
+  //   return this.http
+  //     .patch(apiUrl + `users/${username}`, userData, {
+  //       headers: new HttpHeaders({
+  //         Authorization: 'Bearer ' + token,
+  //       }),
+  //     })
+  //     .pipe(map(this.extractResponseData), catchError(this.handleError));
+  // }
 
   // Delete user endpoint API call
   public deleteUser(): Observable<any> {
@@ -179,7 +179,6 @@ export class FetchApiDataService {
         `Error Status code ${error.status}, ` +
         `Error body is: ${error.error}`);
     }
-    return throwError(
-      'Something went wrong; please try again later.');
+    return throwError('Something went wrong :/ Please try again later.');
   }
 }
