@@ -1,0 +1,24 @@
+<div>
+  <mat-card>
+
+    <mat-card-content>Hello {{ user.Username }}!</mat-card-content>
+
+    <mat-card-content>
+      <p>Here are your account details:</p>
+      <p>Username: {{ user.Username }} </p>
+      <p>Email: {{ user.Email }} </p>
+      <p>Birthday: {{ user.Birthday }} </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="editUser()" style="margin-left: 10px" color="primary">
+        Edit profile
+      </button>
+      <button mat-raised-button (click)="deleteUser()" style="margin-left: 130px" color="warn">
+        Delete profile
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

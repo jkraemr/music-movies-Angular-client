@@ -120,25 +120,25 @@ export class FetchApiDataService {
   //     .pipe(map(this.extractResponseData), catchError(this.handleError));
   // }
 
-  // // Edit user endpoint API call
-  // editUser(userDetails: any): Observable<any> {
-  //   const token = localStorage.getItem('token');
-  //   const username = localStorage.getItem('username');
-  //   return this.http
-  //     .patch(apiUrl + `users/${username}`, userData, {
-  //       headers: new HttpHeaders({
-  //         Authorization: 'Bearer ' + token,
-  //       }),
-  //     })
-  //     .pipe(map(this.extractResponseData), catchError(this.handleError));
-  // }
+  // Edit user endpoint API call
+  editUser(userDetails: object): Observable<any> {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    return this.http
+      .patch(apiUrl + `users/${user}`, userDetails, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
 
   // Delete user endpoint API call
   public deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
+    const user = localStorage.getItem('user');
     return this.http
-      .delete(apiUrl + `users/${username}`, {
+      .delete(apiUrl + `users/${user}`, {
         headers: new HttpHeaders(
           {
             Authorization: 'Bearer ' + token,
