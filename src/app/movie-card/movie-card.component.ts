@@ -14,6 +14,8 @@ import { MovieDetailsComponent } from '../movie-details/movie-details.component'
 
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
+  favorites: any[] = [];
+  user: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -23,6 +25,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getFavorites();
   }
 
   getMovies(): void {
@@ -61,6 +64,50 @@ export class MovieCardComponent implements OnInit {
       },
       width: '450px',
     });
+  }
+
+  getFavorites(): void {
+    const user = localStorage.getItem('user');
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.favorites = resp.FavoriteMovies;
+      console.log(this.favorites);
+    });
+  }
+
+  addFavorite(movieID: string, title: string): void {
+    this.fetchApiData.addFavorite(movieID).subscribe(() => {
+      this.snackBar.open(`"${title}" has been added to your favorites.`, 'OK', {
+        duration: 4000,
+      });
+      this.ngOnInit();
+    });
+    return this.getFavorites();
+  }
+
+  noFavorite(movieID: string, title: string): void {
+    this.fetchApiData.deleteFavorite(movieID).subscribe((resp: any) => {
+      console.log(resp);
+      this.snackBar.open(
+        `"${title}" has been removed from your favorites.`,
+        'OK',
+        {
+          duration: 4000,
+        }
+      );
+      this.ngOnInit();
+    });
+    return this.getFavorites();
+  }
+
+  isFavorite(movieID: string): boolean {
+    return this.favorites.some((movie) => movie._id === movieID);
+    console.log(this.favorites.some((movie) => movie._id === movieID))
+  }
+
+  switchFavorite(movie: any): void {
+    this.isFavorite(movie._id)
+      ? this.noFavorite(movie._id, movie.Title)
+      : this.addFavorite(movie._id, movie.Title);
   }
 
 }
