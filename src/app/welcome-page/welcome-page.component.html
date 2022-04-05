@@ -1,11 +1,19 @@
 <div class="main-page">
-  <h1>
-    Welcome to myMusicMovies!
-  </h1>
-  <button mat-raised-button (click)="openUserLoginDialog()" style="margin-right: 10px;" color="primary">
-    Login
-  </button>
-  <button mat-raised-button (click)="openUserRegistrationDialog()" style="margin-right: 10px;" color="primary">
-    Sign Up
-  </button>
+  <div class="welcome">
+    <div class="welcome-main">
+      <h1>
+        myMusicMovies
+      </h1>
+      <h2>
+        Welcome!
+      </h2>
+      <h3>Please login or sign up:</h3>
+      <button mat-raised-button (click)="openUserLoginDialog()" style="margin-right: 10px;" color="primary">
+        Login
+      </button>
+      <button mat-raised-button (click)="openUserRegistrationDialog()" style="margin-right: 10px;" color="primary">
+        Sign Up
+      </button>
+    </div>
+  </div>
 </div>

@@ -1,11 +1,8 @@
-<div style="display: flex;">
+<app-navbar></app-navbar>
+<div class="movie-card" style="display: flex;">
   <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
     <mat-card-header>
       <mat-card-title>{{movie.Title}}</mat-card-title>
-      <button mat-icon-button (click)="switchFavorite(movie)">
-        <mat-icon *ngIf="!isFavorite(movie._id)"> favorite_border </mat-icon>
-        <mat-icon *ngIf="isFavorite(movie._id)"> favorite </mat-icon>
-      </button>
       <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
     </mat-card-header>
     <img src={{movie.ImagePath}} width="300" alt={{movie.Title}} />
@@ -18,6 +15,10 @@
       </button>
       <button mat-button color="primary" (click)="openMovieDetails(movie.Title, movie.Description)">
         Synopsis
+      </button>
+      <button mat-icon-button (click)="switchFavorite(movie)">
+        <mat-icon *ngIf="!isFavorite(movie._id)"> favorite_border </mat-icon>
+        <mat-icon *ngIf="isFavorite(movie._id)"> favorite </mat-icon>
       </button>
     </mat-card-actions>
   </mat-card>

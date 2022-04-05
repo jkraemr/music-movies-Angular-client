@@ -33,14 +33,14 @@ export class UserLoginFormComponent implements OnInit {
       // Close dialog modal on success
       this.dialogRef.close();
       console.log(response);
-      this.snackBar.open('Sucess! You are now logged in.', 'OK', {
-        duration: 10000,
+      this.snackBar.open('You are now logged in.', 'OK', {
+        duration: 5000,
       });
       this.router.navigate(['movies']);
     }, (response) => {
       console.log(response)
       this.snackBar.open('Something went wrong. Please check your login credentials and try again.', 'OK', {
-        duration: 10000
+        duration: 5000
       });
     });
   }

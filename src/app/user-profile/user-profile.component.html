@@ -1,20 +1,22 @@
-<div>
-  <mat-card>
+<app-navbar></app-navbar>
+<div class="user-profile">
+  <mat-card class="user-card">
 
-    <mat-card-content>Hello {{ user.Username }}!</mat-card-content>
+    <mat-card-content><strong>Hello {{ user.Username }}!</strong> </mat-card-content>
 
     <mat-card-content>
       <p>Here are your account details:</p>
-      <p>Username: {{ user.Username }} </p>
-      <p>Email: {{ user.Email }} </p>
-      <p>Birthday: {{ user.Birthday }} </p>
+      <p><strong>Username: </strong>{{ user.Username }} </p>
+      <p><strong>Email: </strong> {{ user.Email }} </p>
+      <p><strong>Birthday: </strong>{{ user.Birthday | date:'fullDate'}} </p>
     </mat-card-content>
 
     <mat-card-actions>
       <button mat-raised-button (click)="editUser()" style="margin-left: 10px" color="primary">
         Edit profile
       </button>
-      <button mat-raised-button (click)="deleteUser()" style="margin-left: 130px" color="warn">
+      <br>
+      <button mat-raised-button (click)="deleteUser()" color="warn">
         Delete profile
       </button>
     </mat-card-actions>
