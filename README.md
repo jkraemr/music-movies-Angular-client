@@ -1,5 +1,7 @@
 # MusicMoviesAngularClient
 
+The **Music Movies Angular Client** is the frontend component of the **myMusicMovies** web application based on its existing server-side code (RESTful Music Movies API and database) using the MEAN stack.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
