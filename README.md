@@ -23,6 +23,13 @@ The **Music Movies Angular Client** is the frontend component of the **myMusicMo
 * Project contains technical documentation using Typedoc
 * Project is hosted on GitHub Pages
 
+## Built with
+The **My Music Movies** web application is built using the MEAN stack:
+* MongoDB
+* Express.js
+* Angular
+* Node.js
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
