@@ -1,3 +1,8 @@
+/**
+ * The MovieCard component renders information about a single movie retrieved from the myMusicMovies non-relational database.
+ * @module MovieCardComponent
+ */
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
@@ -8,7 +13,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog'
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-
+  /**
+   *
+   * @param data
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     @Inject(MAT_DIALOG_DATA)

@@ -1,3 +1,8 @@
+/**
+ * The UserEditComponent provides user profile editing capabilites.
+ * @module UserEditComponent
+ */
+
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
@@ -20,6 +25,9 @@ export class UserEditComponent implements OnInit {
     public snackBar: MatSnackBar
   ) { }
 
+  /**
+   * Binding input values to the userData object
+   */
   @Input() userData = {
     Username: this.user.Username,
     Password: this.user.Password,
@@ -31,6 +39,10 @@ export class UserEditComponent implements OnInit {
     this.getUser();
   }
 
+  /**
+   * Get user data
+   *  @function getUser
+   */
   getUser(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -38,6 +50,10 @@ export class UserEditComponent implements OnInit {
     });
   }
 
+  /**
+   * Edit user data
+   *  @function editUser
+   */
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe((resp) => {
       this.dialogRef.close();

@@ -1,3 +1,8 @@
+/**
+ * The DirectorViewComponent renders information about a selected director.
+ * @module DirectorViewComponent
+ */
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
@@ -7,6 +12,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog'
   templateUrl: './director-view.component.html',
   styleUrls: ['./director-view.component.scss']
 })
+/**
+ *
+ * @param data
+ */
 export class DirectorViewComponent implements OnInit {
 
   constructor(

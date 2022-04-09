@@ -22,14 +22,21 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+  * Redirect to movie collection.
+  */
   Movies(): void {
     this.router.navigate(['movies']);
   }
-
+  /**
+   * Load user profile.
+   */
   Profile(): void {
     this.router.navigate(['account']);
   }
-
+  /**
+    * Log out user, clear LocalStorage and redirect to WelcomeScreen.
+    */
   logOut(): void {
     localStorage.clear();
     this.snackBar.open('You are now logged out.', 'OK', {

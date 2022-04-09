@@ -1,3 +1,8 @@
+/**
+ * The UserLoginFormComponent serves as login window for users.
+ * @module UserLoginFormComponent
+ */
+
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -13,7 +18,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 
 export class UserLoginFormComponent implements OnInit {
-
+  /**
+  * Receive and store form input data in userData
+  */
   @Input() userData = { Username: '', Password: '' };
 
   constructor(
@@ -24,8 +31,12 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // Function to send login form inputs to backend
+  /**
+   * Function to send login form inputs to backend to log in user and user data in LocalStorage.
+   * @function loginUser
+   * @param loginData {object}
+   * @return A JSON object holding user data (user, token)
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
       localStorage.setItem('user', response.user.Username);

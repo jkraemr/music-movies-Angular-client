@@ -1,3 +1,8 @@
+/**
+ * The WelcomePageComponent serves as the start page providing the possibility to login or register for a new account.
+ * @module WelcomePageComponent
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
 import { UserRegistrationFormComponent } from '../user-registration-form/user-registration-form.component';
@@ -15,7 +20,10 @@ export class WelcomePageComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  // Open dialog when login button is clicked  
+  /**
+ * Open dialog when login button is clicked.
+ * @module UserLoginFormComponent
+ */
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       // Assigning the dialog a width
@@ -23,7 +31,10 @@ export class WelcomePageComponent implements OnInit {
     });
   }
 
-  // Open dialog when registration button is clicked  
+  /**
+   * Open dialog when registration button is clicked.
+   * @module UserRegistrationFormComponent
+   */
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
       // Assigning the dialog a width

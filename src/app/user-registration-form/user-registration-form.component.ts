@@ -1,3 +1,7 @@
+/**
+ * The UserRegistrationFormComponent serves to register new users.
+ * @module UserRegistrationFormComponent
+ */
 import { Component, OnInit, Input } from '@angular/core';
 // Close dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
@@ -14,6 +18,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class UserRegistrationFormComponent implements OnInit {
 
+  /**
+  * Receive and store form input data and store in userData.
+  */
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
@@ -23,8 +30,12 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // Function to send registration form inputs to backend
+  /**
+   * Function to send registration form inputs to backend.
+   * @function registerUser
+   * @param userData {object}
+   * @return A JSON object holding the user's data.
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
       // Close dialog modal on success
